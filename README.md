@@ -9,5 +9,5 @@ porém de qualquer forma deixei na pasta AbstractAPI o código para o uso da API
 
 Para executar o programa basta conectá-lo a um banco postgresql, e caso o servidor do GlassFish apresente dificuldades
 de conexão, basta adicionar o jar do postgresql em sua lib no local onde o mesmo estiver instalado. A execução está atrelada aos arquivos
-html ou jsf, logo basta abrir por lá.
+html ou jsf, logo basta abri-lo para execução.
 
