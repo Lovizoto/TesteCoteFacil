@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form>
+
+        <p:fieldset legend ="Planetas" style="margin-top: 5px; margin-bottom: 5px">
+            <p:toolbar>
+                <p:toolbarGroup>
+                    <p:commandButton value="Novo" action="#{planetaBean.novo()}" update="@form" style="margin-right: 2px"></p:commandButton>
+                    <p:commandButton value="Salvar" update="@form" action="#{planetaBean.salvar()}" disabled="#{planetaBean.buscar == true}" style="margin-right: 5px"></p:commandButton>
+                    <p:commandButton value="Buscar" action="#{planetaBean.procurar()}" update="@form"></p:commandButton>
+                </p:toolbarGroup>
+            </p:toolbar>
+            <p:panelGrid columns ="2" rendered="#{planetaBean.buscar == false}">
+                <h:outputLabel value="Nome"></h:outputLabel>
+                <p:inputText value="#{planetaBean.entidade.nome}"></p:inputText>
+
+                <h:outputLabel value ="Clima"></h:outputLabel>
+                <p:inputText value="#{planetaBean.entidade.clima}"></p:inputText>
+
+                <h:outputLabel value ="Terreno"></h:outputLabel>
+                <p:inputText value="#{planetaBean.entidade.terreno}"></p:inputText>
+
+                <h:outputLabel value ="Qtde Filmes"></h:outputLabel>
+                <p:inputText value="#{planetaBean.entidade.qtde}"></p:inputText>
+            </p:panelGrid> 
+            <p:dataTable value="#{planetaBean.entidades}" var="planeta" rendered="#{planetaBean.buscar == true}">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{planetaBean.editar(planeta)}" update="@form" style="margin-right: 2px;"></p:commandButton>
+                    <p:commandButton value="Deletar" action="#{planetaBean.deletar(planeta)}" update="@form"></p:commandButton>
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{planeta.id}"></h:outputText>
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{planeta.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="Clima">
+                    <h:outputText value="#{planeta.clima}"></h:outputText>
+                </p:column>
+                <p:column headerText="Terreno">
+                    <h:outputText value="#{planeta.terreno}"></h:outputText>
+                </p:column>
+                <p:column headerText="Quantidade Aparições">
+                    <h:outputText value="#{planeta.qtde}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+    </h:form>
+</ui:decorate>
+

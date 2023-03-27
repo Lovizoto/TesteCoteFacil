@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml"
+             xmlns:p="http://primefaces.org/ui">
+
+    <h1>"Bem Vindo"</h1>
+    <h:form>
+        <p:commandButton value="Mudar para Inserir" update="@form" action="#{planetaBean.mudarParaInserir()}" style="margin-right: 5px;"></p:commandButton>
+        <p:commandButton value="Mudar para Editar" update="@form" action="#{planetaBean.mudarParaEditar()}" style="margin-right: 5px;"></p:commandButton>
+        <p:commandButton value="Mudar para Buscar" update="@form" action="#{planetaBean.mudarParaBuscar()}" style="margin-right: 5px;"></p:commandButton>
+        <br/>
+        
+        <h:outputText value="Inserir" rendered="#{planetaBean.inserir == true}"></h:outputText>
+        <h:outputText value="Editar" rendered="#{planetaBean.editar == true}"></h:outputText>
+        <h:outputText value="Buscar" rendered="#{planetaBean.buscar == true}"></h:outputText>
+        
+        
+        
+    </h:form>
+
+</ui:decorate>
+
