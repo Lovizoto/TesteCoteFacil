@@ -1,0 +1,5 @@
+Para correção de erro (gitflow):
+$ git flow hotfix start hotfix_branch
+
+Para criação de uma nova funcionalidade ou novo recurso:
+git checkout -b michel-feature main
